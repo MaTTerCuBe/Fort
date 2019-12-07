@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TouchBase</string>
+
+    <string name="touch_base_fragment_title">TouchBase</string>
+    <string name="friends_fragment_title">Friends</string>
+
 </resources>
