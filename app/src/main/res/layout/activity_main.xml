@@ -12,7 +12,7 @@
         android:id="@+id/top_panel"
         android:name="com.mattercube.touchbase.BlankFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/trispace"
         android:layout_weight="1"/>
 
     <TextView
@@ -21,14 +21,14 @@
         android:layout_height="wrap_content"
         android:layout_weight="0"
         android:text="@string/touch_base_fragment_title"
-        android:textColor="@color/greyed"
+        android:textColor="@color/white"
         android:textSize="@dimen/main_header" />
 
     <fragment
         android:id="@+id/middle_panel"
         android:name="com.mattercube.touchbase.BlankFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/trispace"
         android:layout_weight="1"/>
 
     <TextView
@@ -37,14 +37,14 @@
         android:layout_height="wrap_content"
         android:layout_weight="0"
         android:text="@string/friends_fragment_title"
-        android:textColor="@color/greyed"
+        android:textColor="@color/white"
         android:textSize="@dimen/main_header" />
 
     <fragment
         android:id="@+id/bottom_panel"
-        android:name="com.mattercube.touchbase.FriendsFragment"
+        android:name="com.mattercube.touchbase.BlankFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/trispace"
         android:layout_weight="1"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

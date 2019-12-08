@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         manager.beginTransaction()
             .add(R.id.top_panel, holder1)
             .add(R.id.middle_panel, holder2)
-            .add(R.id.bottom_panel, friendsFragment)
+            .replace(R.id.bottom_panel, friendsFragment)
             .commit()
 
     }
