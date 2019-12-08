@@ -2,6 +2,6 @@
 <resources>
     <color name="colorPrimary">#1f1f1f</color>
     <color name="white">#c9c9c9</color>
-    <color name="greyed">#5a5a5a</color>
-    <color name="pinkish">#bd4747</color>
+    <color name="greyed">#505a5a5a</color>
+    <color name="pinkish">#f2bd4747</color>
 </resources>
