@@ -9,6 +9,7 @@
     android:background="@color/colorPrimary">
 
     <fragment
+        android:id="@+id/topPanel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"/>
@@ -22,6 +23,7 @@
         android:textSize="@dimen/main_header" />
 
     <fragment
+        android:id="@+id/middle_panel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"/>
@@ -35,6 +37,7 @@
         android:textSize="@dimen/main_header" />
 
     <fragment
+        android:id="@+id/bottom_panel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"/>
