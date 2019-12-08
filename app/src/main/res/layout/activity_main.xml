@@ -21,6 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="0"
         android:text="@string/touch_base_fragment_title"
+        android:textColor="@color/greyed"
         android:textSize="@dimen/main_header" />
 
     <fragment
@@ -36,11 +37,12 @@
         android:layout_height="wrap_content"
         android:layout_weight="0"
         android:text="@string/friends_fragment_title"
+        android:textColor="@color/greyed"
         android:textSize="@dimen/main_header" />
 
     <fragment
         android:id="@+id/bottom_panel"
-        android:name="com.mattercube.touchbase.BlankFragment"
+        android:name="com.mattercube.touchbase.FriendsFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"/>
