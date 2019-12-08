@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!-- Place holder, as not to potentially lose work
+        <fragment
+            android:id="@+id/friend_entry1"
+            android:name="com.mattercube.touchbase.FriendListEntryFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <fragment
+            android:id="@+id/friend_entry2"
+            android:name="com.mattercube.touchbase.FriendListEntryFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <fragment
+            android:id="@+id/friend_entry3"
+            android:name="com.mattercube.touchbase.FriendListEntryFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <fragment
+            android:id="@+id/friend_entry4"
+            android:name="com.mattercube.touchbase.FriendListEntryFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <fragment
+            android:id="@+id/friend_entry5"
+            android:name="com.mattercube.touchbase.FriendListEntryFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <fragment
+            android:id="@+id/friend_entry6"
+            android:name="com.mattercube.touchbase.FriendListEntryFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+    -->
+</LinearLayout>
