@@ -9,7 +9,8 @@
     android:background="@color/colorPrimary">
 
     <fragment
-        android:id="@+id/topPanel"
+        android:id="@+id/top_panel"
+        android:name="com.mattercube.touchbase.BlankFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"/>
@@ -24,6 +25,7 @@
 
     <fragment
         android:id="@+id/middle_panel"
+        android:name="com.mattercube.touchbase.BlankFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"/>
@@ -38,6 +40,7 @@
 
     <fragment
         android:id="@+id/bottom_panel"
+        android:name="com.mattercube.touchbase.BlankFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"/>
