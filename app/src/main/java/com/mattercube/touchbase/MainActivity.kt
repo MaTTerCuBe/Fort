@@ -3,7 +3,7 @@ package com.mattercube.touchbase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-
+//Made by Roman Khamov
 class MainActivity : AppCompatActivity() {
 
     private val friendsFragment = FriendsFragment()

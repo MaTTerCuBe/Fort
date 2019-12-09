@@ -5,6 +5,11 @@
     <string name="touch_base_fragment_title">TouchBase</string>
     <string name="friends_fragment_title">Friends</string>
     <string name="since_touch">Since\nTouchBase</string>
+    <string name="event_title">Log Event</string>
+    <string name="select">select</string>
+    <string name="date">date</string>
+    <string name="description">description</string>
+    <string name="save">save</string>
 
     <!-- Default Entries -->
     <string name="default_user_name">Your Friend</string>
