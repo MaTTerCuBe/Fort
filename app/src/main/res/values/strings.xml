@@ -1,11 +1,17 @@
 <resources>
     <string name="app_name">TouchBase</string>
 
+    <!-- Titles and Labels -->
     <string name="touch_base_fragment_title">TouchBase</string>
     <string name="friends_fragment_title">Friends</string>
+    <string name="since_touch">Since\nTouchBase</string>
 
+    <!-- Default Entries -->
     <string name="default_user_name">Your Friend</string>
     <string name="default_last_touch">25 Oct 2018</string>
+    <string name="default_touch_count">5</string>
+    <string name="default_touch_count_unit">D</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
