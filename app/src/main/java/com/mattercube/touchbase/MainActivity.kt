@@ -7,7 +7,7 @@ import android.util.Log
 class MainActivity : AppCompatActivity() {
 
     private val friendsFragment = FriendsFragment()
-    private val holder1 = BlankFragment()
+    private val eventFragment = EventFragment()
     private val touchFragment = TouchFragment()
     private val holder3 = BlankFragment()
     private val manager = supportFragmentManager
@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         Log.i("activity_main", "About begin manager shinanigins")
         manager.beginTransaction()
-            .add(R.id.top_panel, holder1)
+            .add(R.id.top_panel, eventFragment)
             .add(R.id.middle_panel, touchFragment)
             .replace(R.id.bottom_panel, friendsFragment)
             .commit()
