@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainMenuFragment"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        android:id="@+id/top_panel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/trispace"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:layout_marginTop="@dimen/margin_default"
+        android:layout_weight="1"
+        android:background="@color/greyed"/>
+
+    <TextView
+        android:id="@+id/touch_base_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:layout_weight="0"
+        android:text="@string/touch_base_fragment_title"
+        android:textColor="@color/white"
+        android:textSize="@dimen/main_header" />
+
+    <TextView
+        android:id="@+id/middle_panel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/trispace"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:layout_weight="1"
+        android:background="@color/greyed"/>
+
+    <TextView
+        android:id="@+id/friends_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:layout_weight="0"
+        android:text="@string/friends_fragment_title"
+        android:textColor="@color/white"
+        android:textSize="@dimen/main_header" />
+
+    <TextView
+        android:id="@+id/bottom_panel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/trispace"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:layout_marginBottom="@dimen/margin_default"
+        android:layout_weight="1"
+        android:background="@color/greyed"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
