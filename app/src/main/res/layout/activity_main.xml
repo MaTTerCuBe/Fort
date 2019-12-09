@@ -15,5 +15,5 @@
         android:layout_height="@dimen/trispace"
         android:layout_marginBottom="@dimen/margin_default"
         android:layout_weight="1" />
-    
+
 </androidx.appcompat.widget.LinearLayoutCompat>

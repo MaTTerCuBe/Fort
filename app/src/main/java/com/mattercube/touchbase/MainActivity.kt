@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 //Made by Roman Khamov
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MainMenuFragment.mainMenuOptions {
 
     private val mainMenuFragment = MainMenuFragment()
     private val friendsFragment = FriendsFragment()
@@ -25,5 +25,26 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.main_screen, mainMenuFragment)
             .commit()
 
+    }
+
+    /* ----- Interfaces for MainMenuFragment ----- */
+    override fun logEventTapped() {
+        manager.beginTransaction()
+            .replace(R.id.main_screen, eventFragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
+    override fun touchBaseTapped() {
+        manager.beginTransaction()
+            .replace(R.id.main_screen, touchFragment)
+            .addToBackStack(null)
+            .commit()    }
+
+    override fun friendsTapped() {
+        manager.beginTransaction()
+            .replace(R.id.main_screen, friendsFragment)
+            .addToBackStack(null)
+            .commit()
     }
 }

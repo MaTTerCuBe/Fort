@@ -13,6 +13,8 @@ import kotlinx.android.synthetic.main.fragment_main_menu.*
  */
 class MainMenuFragment : Fragment() {
 
+    private lateinit var optionSelected: mainMenuOptions
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -24,17 +26,24 @@ class MainMenuFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        main_screen.setOnClickListener {
+        optionSelected =context as mainMenuOptions
 
+        main_screen.setOnClickListener {
+            optionSelected.logEventTapped()
         }
 
         middle_panel.setOnClickListener {
-
+            optionSelected.touchBaseTapped()
         }
 
         bottom_panel.setOnClickListener {
-
+            optionSelected.friendsTapped()
         }
     }
 
+    interface mainMenuOptions {
+        fun logEventTapped()
+        fun touchBaseTapped()
+        fun friendsTapped()
+    }
 }
