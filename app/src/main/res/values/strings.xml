@@ -11,10 +11,16 @@
     <string name="description">description</string>
     <string name="save">save</string>
 
-
+    <!-- Main Menu -->
     <string name="description_event">\nTap here to Log an Event</string>
     <string name="description_touch_base">\nTap here to see who you \nneed to Touch Base with</string>
     <string name="description_friends">\nTap here to see a list of \nyour friends or to edit their info</string>
+
+    <!-- Contact Info -->
+    <string name="title_contact_Info">Contact Info</string>
+    <string name="contact_name">Name</string>
+    <string name="contact_phone_number">Phone Number</string>
+
 
     <!-- Default Entries -->
     <string name="default_user_name">Your Friend</string>
