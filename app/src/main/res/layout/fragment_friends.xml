@@ -34,6 +34,7 @@
             android:layout_marginStart="32dp"
             android:text="@string/default_user_name"
             android:textColor="@color/white"
+            android:textSize="@dimen/text_size_big"
             app:layout_constraintBottom_toBottomOf="@id/user_icon_1"
             app:layout_constraintStart_toEndOf="@id/user_icon_1"
             app:layout_constraintTop_toTopOf="@id/user_icon_1" />
@@ -81,6 +82,7 @@
             android:layout_marginStart="32dp"
             android:text="@string/default_user_name"
             android:textColor="@color/white"
+            android:textSize="@dimen/text_size_big"
             app:layout_constraintBottom_toBottomOf="@id/user_icon_2"
             app:layout_constraintStart_toEndOf="@id/user_icon_2"
             app:layout_constraintTop_toTopOf="@id/user_icon_2" />
@@ -128,6 +130,7 @@
             android:layout_marginStart="32dp"
             android:text="@string/default_user_name"
             android:textColor="@color/white"
+            android:textSize="@dimen/text_size_big"
             app:layout_constraintBottom_toBottomOf="@id/user_icon_3"
             app:layout_constraintStart_toEndOf="@id/user_icon_3"
             app:layout_constraintTop_toTopOf="@id/user_icon_3" />
@@ -175,6 +178,7 @@
             android:layout_marginStart="32dp"
             android:text="@string/default_user_name"
             android:textColor="@color/white"
+            android:textSize="@dimen/text_size_big"
             app:layout_constraintBottom_toBottomOf="@id/user_icon_4"
             app:layout_constraintStart_toEndOf="@id/user_icon_4"
             app:layout_constraintTop_toTopOf="@id/user_icon_4" />
@@ -222,6 +226,7 @@
             android:layout_marginStart="32dp"
             android:text="@string/default_user_name"
             android:textColor="@color/white"
+            android:textSize="@dimen/text_size_big"
             app:layout_constraintBottom_toBottomOf="@id/user_icon_5"
             app:layout_constraintStart_toEndOf="@id/user_icon_5"
             app:layout_constraintTop_toTopOf="@id/user_icon_5" />
