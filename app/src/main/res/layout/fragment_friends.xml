@@ -18,8 +18,8 @@
         <!-- First Friend -->
         <ImageView
             android:id="@+id/user_icon_1"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/person_icon_resize"
+            android:layout_height="@dimen/person_icon_resize"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:src="@drawable/person_icon"
@@ -51,8 +51,8 @@
 
         <ImageView
             android:id="@+id/options_1"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="@dimen/options_icon_resize"
+            android:layout_height="@dimen/options_icon_resize"
             android:layout_marginEnd="16dp"
             app:layout_constraintBottom_toBottomOf="@id/last_touch_1"
             app:layout_constraintEnd_toEndOf="parent"
@@ -64,8 +64,8 @@
         <!-- Second Friend -->
         <ImageView
             android:id="@+id/user_icon_2"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/person_icon_resize"
+            android:layout_height="@dimen/person_icon_resize"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:src="@drawable/person_icon"
@@ -97,8 +97,8 @@
 
         <ImageView
             android:id="@+id/options_2"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="@dimen/options_icon_resize"
+            android:layout_height="@dimen/options_icon_resize"
             android:layout_marginEnd="16dp"
             app:layout_constraintBottom_toBottomOf="@id/last_touch_2"
             app:layout_constraintEnd_toEndOf="parent"
@@ -110,8 +110,8 @@
         <!-- Third Friend -->
         <ImageView
             android:id="@+id/user_icon_3"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/person_icon_resize"
+            android:layout_height="@dimen/person_icon_resize"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:src="@drawable/person_icon"
@@ -143,8 +143,8 @@
 
         <ImageView
             android:id="@+id/options_3"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="@dimen/options_icon_resize"
+            android:layout_height="@dimen/options_icon_resize"
             android:layout_marginEnd="16dp"
             app:layout_constraintBottom_toBottomOf="@id/last_touch_3"
             app:layout_constraintEnd_toEndOf="parent"
@@ -156,8 +156,8 @@
         <!-- Fourth Friend -->
         <ImageView
             android:id="@+id/user_icon_4"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/person_icon_resize"
+            android:layout_height="@dimen/person_icon_resize"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:src="@drawable/person_icon"
@@ -189,8 +189,8 @@
 
         <ImageView
             android:id="@+id/options_4"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="@dimen/options_icon_resize"
+            android:layout_height="@dimen/options_icon_resize"
             android:layout_marginEnd="16dp"
             app:layout_constraintBottom_toBottomOf="@id/last_touch_4"
             app:layout_constraintEnd_toEndOf="parent"
@@ -202,8 +202,8 @@
         <!-- Fifth Friend -->
         <ImageView
             android:id="@+id/user_icon_5"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/person_icon_resize"
+            android:layout_height="@dimen/person_icon_resize"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:src="@drawable/person_icon"
@@ -235,8 +235,8 @@
 
         <ImageView
             android:id="@+id/options_5"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="@dimen/options_icon_resize"
+            android:layout_height="@dimen/options_icon_resize"
             android:layout_marginEnd="16dp"
             app:layout_constraintBottom_toBottomOf="@id/last_touch_5"
             app:layout_constraintEnd_toEndOf="parent"

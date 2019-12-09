@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- For activity_main spacing -->
     <dimen name="main_header">24sp</dimen>
     <dimen name="trispace">10dp</dimen>
 
-    <dimen name="person_icon_resize"></dimen>
+    <!-- Margins -->
+    <dimen name="default_margin">16dp</dimen>
+
+    <!-- Image resizing -->
+    <dimen name="person_icon_resize">15dp</dimen>
+    <dimen name="options_icon_resize">15dp</dimen>
 </resources>
