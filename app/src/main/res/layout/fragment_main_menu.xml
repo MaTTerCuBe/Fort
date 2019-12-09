@@ -16,7 +16,10 @@
         android:layout_marginEnd="@dimen/margin_default"
         android:layout_marginTop="@dimen/margin_default"
         android:layout_weight="1"
-        android:background="@color/greyed"/>
+        android:background="@color/greyed"
+        android:text="@string/description_event"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_default" />
 
     <TextView
         android:id="@+id/touch_base_title"
@@ -36,7 +39,10 @@
         android:layout_marginStart="@dimen/margin_default"
         android:layout_marginEnd="@dimen/margin_default"
         android:layout_weight="1"
-        android:background="@color/greyed"/>
+        android:background="@color/greyed"
+        android:text="@string/description_touch_base"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_default"/>
 
     <TextView
         android:id="@+id/friends_title"
@@ -57,6 +63,9 @@
         android:layout_marginEnd="@dimen/margin_default"
         android:layout_marginBottom="@dimen/margin_default"
         android:layout_weight="1"
-        android:background="@color/greyed"/>
+        android:background="@color/greyed"
+        android:text="@string/description_friends"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_default"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
