@@ -13,12 +13,17 @@
         android:name="com.mattercube.touchbase.BlankFragment"
         android:layout_width="match_parent"
         android:layout_height="@dimen/trispace"
-        android:layout_weight="1"/>
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:layout_marginTop="@dimen/margin_default"
+        android:layout_weight="1" />
 
     <TextView
         android:id="@+id/touch_base_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginEnd="@dimen/margin_default"
         android:layout_weight="0"
         android:text="@string/touch_base_fragment_title"
         android:textColor="@color/white"
@@ -29,12 +34,16 @@
         android:name="com.mattercube.touchbase.BlankFragment"
         android:layout_width="match_parent"
         android:layout_height="@dimen/trispace"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginEnd="@dimen/margin_default"
         android:layout_weight="1"/>
 
     <TextView
         android:id="@+id/friends_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginEnd="@dimen/margin_default"
         android:layout_weight="0"
         android:text="@string/friends_fragment_title"
         android:textColor="@color/white"
@@ -45,6 +54,9 @@
         android:name="com.mattercube.touchbase.BlankFragment"
         android:layout_width="match_parent"
         android:layout_height="@dimen/trispace"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:layout_marginBottom="@dimen/margin_default"
         android:layout_weight="1"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

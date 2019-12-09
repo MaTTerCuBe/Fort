@@ -142,11 +142,11 @@
             android:text="@string/default_user_name"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_big"
-            app:layout_constraintTop_toBottomOf="call_icon1"
+            app:layout_constraintTop_toBottomOf="@id/call_icon1"
             app:layout_constraintStart_toEndOf="@id/user_icon_2"
             app:layout_constraintBottom_toTopOf="@id/touch_counter2"
             android:layout_marginStart="@dimen/margin_default"
-            android:layout_marginTop="@dimen/margin_small"/>
+            android:layout_marginTop="@dimen/margin_default"/>
 
         <TextView
             android:id="@+id/touch_counter2"
