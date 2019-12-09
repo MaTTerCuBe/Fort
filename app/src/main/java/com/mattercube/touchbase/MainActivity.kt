@@ -4,13 +4,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 //Made by Roman Khamov
-class MainActivity : AppCompatActivity(), MainMenuFragment.mainMenuOptions {
+class MainActivity : AppCompatActivity(), MainMenuFragment.mainMenuOptions,
+                        FriendsFragment.FriendOptions {
 
+    // Fragments
     private val mainMenuFragment = MainMenuFragment()
     private val friendsFragment = FriendsFragment()
     private val eventFragment = EventFragment()
     private val touchFragment = TouchFragment()
-    private val holder3 = BlankFragment()
+    private val contactInfoFragment = ContactInfoFragment()
+
+
     private val manager = supportFragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,6 +48,43 @@ class MainActivity : AppCompatActivity(), MainMenuFragment.mainMenuOptions {
     override fun friendsTapped() {
         manager.beginTransaction()
             .replace(R.id.main_screen, friendsFragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
+    /* ----- Interfaces for FriendsFragment ----- */
+
+    override fun option1Tapped() {
+        manager.beginTransaction()
+            .replace(R.id.main_screen, contactInfoFragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
+    override fun option2Tapped() {
+        manager.beginTransaction()
+            .replace(R.id.main_screen, contactInfoFragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
+    override fun option3Tapped() {
+        manager.beginTransaction()
+            .replace(R.id.main_screen, contactInfoFragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
+    override fun option4Tapped() {
+        manager.beginTransaction()
+            .replace(R.id.main_screen, contactInfoFragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
+    override fun option5Tapped() {
+        manager.beginTransaction()
+            .replace(R.id.main_screen, contactInfoFragment)
             .addToBackStack(null)
             .commit()
     }

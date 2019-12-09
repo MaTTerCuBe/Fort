@@ -19,7 +19,7 @@
     <!-- Contact Info -->
     <string name="title_contact_Info">Contact Info</string>
     <string name="contact_name">Name</string>
-    <string name="contact_phone_number">Phone Number</string>
+    <string name="contact_phone_number">Phone \nNumber</string>
 
 
     <!-- Default Entries -->
