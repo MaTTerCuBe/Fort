@@ -9,15 +9,11 @@
     android:background="@color/colorPrimary">
 
     <fragment
-        android:id="@+id/top_panel"
+        android:id="@+id/main_screen"
         android:name="com.mattercube.touchbase.BlankFragment"
         android:layout_width="match_parent"
         android:layout_height="@dimen/trispace"
-        android:layout_marginStart="@dimen/margin_default"
-        android:layout_marginEnd="@dimen/margin_default"
-        android:layout_marginTop="@dimen/margin_default"
         android:layout_marginBottom="@dimen/margin_default"
         android:layout_weight="1" />
-
-
+    
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -9,7 +9,7 @@
     android:background="@color/colorPrimary">
 
     <TextView
-        android:id="@+id/top_panel"
+        android:id="@+id/main_screen"
         android:layout_width="match_parent"
         android:layout_height="@dimen/trispace"
         android:layout_marginStart="@dimen/margin_default"

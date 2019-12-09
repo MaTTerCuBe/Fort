@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         Log.i("activity_main", "About begin manager shinanigins")
         manager.beginTransaction()
-            .replace(R.id.top_panel, mainMenuFragment)
+            .replace(R.id.main_screen, mainMenuFragment)
             .commit()
 
     }
