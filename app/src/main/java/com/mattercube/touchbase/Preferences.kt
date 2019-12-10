@@ -2,6 +2,7 @@ package com.mattercube.touchbase
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.util.Log
 
 /**
  * Written by Roman Khamov,
@@ -22,6 +23,8 @@ class Preferences (context: Context) {
     val date        = "_date"
     val description = "_description"
 
+    var key = ""
+
     // Default values
     val defName =   "A Test"
     val defNumber   = "1234567890"
@@ -31,23 +34,28 @@ class Preferences (context: Context) {
     /* ----- Retrieving Data Methods ----- */
 
     fun getPersonName(personNum: Int): String? {
-        return preferences.getString(friend + personNum, defName)
+        key = friend + personNum
+        return preferences.getString(key, defName)
     }
 
     fun getPersonNumber(personNum: Int): String? {
-        return preferences.getString(friend + personNum + number, defNumber)
+        key = friend + personNum + number
+        return preferences.getString(key, defNumber)
     }
 
     fun getPersonLastDate (personNum: Int): String? {
-        return preferences.getString(friend + personNum + entry + last + date, defDate)
+        key = friend + personNum + entry + last + date
+        return preferences.getString(key, defDate)
     }
 
     /* ----- Setting Data Methods ----- */
     fun setPersonName(personNum: Int?, enteredName: String) {
-        preferences.edit().putString(friend + personNum, enteredName).apply()
+        key = friend + personNum
+        preferences.edit().putString(key, enteredName).apply()
     }
 
     fun setPersonNumber(personNum: Int?, enteredNumber: String) {
-        preferences.edit().putString(friend + personNum, enteredNumber).apply()
+        key = friend + personNum + number
+        preferences.edit().putString(key, enteredNumber).apply()
     }
 }

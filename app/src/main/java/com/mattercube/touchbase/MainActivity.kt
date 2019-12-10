@@ -61,15 +61,14 @@ class MainActivity : AppCompatActivity(), MainMenuFragment.mainMenuOptions,
 
         manager.beginTransaction()
             .replace(R.id.main_screen, contactInfoFragment)
-            .addToBackStack(null)
             .commit()
     }
 
     /* ----- Interface for ContactInfoFragment ----- */
     override fun saveButtonPressed() {
         manager.beginTransaction()
+            .remove(contactInfoFragment)
             .replace(R.id.main_screen, friendsFragment)
-            .addToBackStack(null)
             .commit()
     }
 

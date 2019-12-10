@@ -2,6 +2,7 @@ package com.mattercube.touchbase
 
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,8 +17,7 @@ class ContactInfoFragment : Fragment() {
 
     private lateinit var buttonPressed: saveButton
 
-    val emptyFieldWarning = context?.resources?.getString(R.string.empty_fields_warning)
-    val infoUpdated       = context?.resources?.getString(R.string.contact_updated)
+
     var friendSelected: Int? = 0
 
     override fun onCreateView(
@@ -31,24 +31,29 @@ class ContactInfoFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        buttonPressed = context as saveButton
+
+        val emptyFieldWarning = context?.resources?.getString(R.string.empty_fields_warning)
+        val infoUpdated       = context?.resources?.getString(R.string.contact_updated)
+
         friendSelected = arguments?.getInt("selectedFriend")
 
-        buttonPressed = context as saveButton
 
         button_save.setOnClickListener {
 
-            if (input_contact_name.toString().isBlank() ||
-                input_contact_phone_number.toString().isBlank()) {
+            if (input_contact_name.text.toString().isBlank() ||
+                input_contact_phone_number.text.toString().isBlank()) {
 
                 Toast.makeText(context, emptyFieldWarning, Toast.LENGTH_LONG).show()
             }
             else {
-                var inputedName = input_contact_name.toString()
-                var inputedNumber = input_contact_phone_number.toString()
+                var inputedName = input_contact_name.text.toString()
+                var inputedNumber = input_contact_phone_number.text.toString()
 
+                Log.i("NOTICE ME SENPAI!!!!!", inputedName)
                 Toast.makeText(context, infoUpdated, Toast.LENGTH_LONG).show()
 
-                App.savedData!!.setPersonName(friendSelected, inputedNumber)
+                App.savedData!!.setPersonName(friendSelected, inputedName)
                 App.savedData!!.setPersonNumber(friendSelected, inputedNumber)
 
                 buttonPressed.saveButtonPressed()
