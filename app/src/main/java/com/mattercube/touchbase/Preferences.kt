@@ -17,13 +17,15 @@ class Preferences (context: Context) {
     val friend      = "friend_"
     val number      = "_number"
     val entry       = "_entry"
+    val last        = "_last"
     val total       = "_total"
     val date        = "_date"
     val description = "_description"
 
     // Default values
-    val defName =   "Your Friend"
+    val defName =   "A Test"
     val defNumber   = "1234567890"
+    val defDate     = "25 Oct 2019"
 
 
     /* ----- Retrieving Data Methods ----- */
@@ -34,6 +36,10 @@ class Preferences (context: Context) {
 
     fun getPersonNumber(personNum: Int): String? {
         return preferences.getString(friend + personNum + number, defNumber)
+    }
+
+    fun getPersonLastDate (personNum: Int): String? {
+        return preferences.getString(friend + personNum + entry + last + date, defDate)
     }
 
     /* ----- Setting Data Methods ----- */
