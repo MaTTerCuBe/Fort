@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.fragment_friends.*
 class FriendsFragment : Fragment() {
 
     private lateinit var optionSelected: FriendOptions
+    var previousFragment: String? = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,32 +27,34 @@ class FriendsFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        previousFragment = arguments?.getString("request_from_fragment")
+
         populateNamesAndDates()
 
         optionSelected = context as FriendOptions
 
         options_1.setOnClickListener {
-            optionSelected.optionTapped(1)
+            optionSelected.optionTapped(1, previousFragment)
         }
 
         options_2.setOnClickListener {
-            optionSelected.optionTapped(2)
+            optionSelected.optionTapped(2, previousFragment)
         }
 
         options_3.setOnClickListener {
-            optionSelected.optionTapped(3)
+            optionSelected.optionTapped(3, previousFragment)
         }
 
         options_4.setOnClickListener {
-            optionSelected.optionTapped(4)
+            optionSelected.optionTapped(4, previousFragment)
         }
 
         options_5.setOnClickListener {
-            optionSelected.optionTapped(5)
+            optionSelected.optionTapped(5, previousFragment)
         }
     }
     interface FriendOptions {
-        fun optionTapped(friendSelected: Int)
+        fun optionTapped(friendSelected: Int, requestMadeFromFragment: String?)
     }
 
     fun populateNamesAndDates() {

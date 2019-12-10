@@ -33,17 +33,17 @@ class Preferences (context: Context) {
 
     /* ----- Retrieving Data Methods ----- */
 
-    fun getPersonName(personNum: Int): String? {
+    fun getPersonName(personNum: Int?): String? {
         key = friend + personNum
         return preferences.getString(key, defName)
     }
 
-    fun getPersonNumber(personNum: Int): String? {
+    fun getPersonNumber(personNum: Int?): String? {
         key = friend + personNum + number
         return preferences.getString(key, defNumber)
     }
 
-    fun getPersonLastDate (personNum: Int): String? {
+    fun getPersonLastDate (personNum: Int?): String? {
         key = friend + personNum + entry + last + date
         return preferences.getString(key, defDate)
     }

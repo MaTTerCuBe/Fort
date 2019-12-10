@@ -14,6 +14,8 @@ class MainActivity : AppCompatActivity(), MainMenuFragment.mainMenuOptions,
     private val touchFragment = TouchFragment()
     private val contactInfoFragment = ContactInfoFragment()
 
+    // String Names for fragments
+    val mainMenuFragmentTag = "MainMenu"
 
     private val manager = supportFragmentManager
 
@@ -46,6 +48,11 @@ class MainActivity : AppCompatActivity(), MainMenuFragment.mainMenuOptions,
             .commit()    }
 
     override fun friendsTapped() {
+        val bundle = Bundle()
+        bundle.putString("request_from_fragment", mainMenuFragmentTag)
+
+        friendsFragment.arguments = bundle
+
         manager.beginTransaction()
             .replace(R.id.main_screen, friendsFragment)
             .addToBackStack(null)
@@ -53,15 +60,17 @@ class MainActivity : AppCompatActivity(), MainMenuFragment.mainMenuOptions,
     }
 
     /* ----- Interfaces for FriendsFragment ----- */
-    override fun optionTapped(friendSelected: Int) {
+    override fun optionTapped(friendSelected: Int, requestMadeFromFragment: String?) {
         val bundle = Bundle()
         bundle.putInt("selectedFriend", friendSelected)
 
-        contactInfoFragment.arguments = bundle
+        if (requestMadeFromFragment == mainMenuFragmentTag) {
+            contactInfoFragment.arguments = bundle
 
-        manager.beginTransaction()
-            .replace(R.id.main_screen, contactInfoFragment)
-            .commit()
+            manager.beginTransaction()
+                .replace(R.id.main_screen, contactInfoFragment)
+                .commit()
+        }
     }
 
     /* ----- Interface for ContactInfoFragment ----- */

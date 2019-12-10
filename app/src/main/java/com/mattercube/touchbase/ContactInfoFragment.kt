@@ -38,7 +38,6 @@ class ContactInfoFragment : Fragment() {
 
         friendSelected = arguments?.getInt("selectedFriend")
 
-
         button_save.setOnClickListener {
 
             if (input_contact_name.text.toString().isBlank() ||
