@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import kotlinx.android.synthetic.main.fragment_event.*
 
 /**
@@ -28,10 +29,19 @@ class EventFragment : Fragment() {
 
         optionSelected = context as EventOptions
 
+        var dateSelected = ""
+
         checkIfFriendAlreadySelected()
 
-        select.setOnClickListener { // This is the select TextView from the XML layout
+        select_plus_icon.setOnClickListener { // This is the select TextView from the XML layout
             optionSelected.selectTapped()
+        }
+        
+        calendarView.setOnDateChangeListener { calendarView, year, month, day ->
+            dateSelected = day.toString() + " " + changeMonthNumberToString(month) +
+                            " " + year.toString()
+
+            Toast.makeText(context, dateSelected, Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -43,6 +53,30 @@ class EventFragment : Fragment() {
 
     fun changeSelectToName(personNum: Int?){
         select.text = App.savedData!!.getPersonName(personNum)
+        select.setTextColor(resources.getColor(R.color.greyed))
+        select_plus_icon.visibility = View.INVISIBLE
+    }
+
+    fun changeMonthNumberToString(monthNumber: Int?): String {
+
+        var monthString = ""
+
+        when (monthNumber) {
+            0   ->    monthString = "Jan"
+            1   ->    monthString = "Feb"
+            2   ->    monthString = "Mar"
+            3   ->    monthString = "Apr"
+            4   ->    monthString = "May"
+            5   ->    monthString = "Jun"
+            6   ->    monthString = "Jul"
+            7   ->    monthString = "Aug"
+            8   ->    monthString = "Sep"
+            9   ->    monthString = "Oct"
+            10  ->    monthString = "Nov"
+            11  ->    monthString = "Dec"
+        }
+
+        return monthString
     }
 
     interface EventOptions {

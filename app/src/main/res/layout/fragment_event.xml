@@ -49,6 +49,16 @@
             app:layout_constraintStart_toStartOf="@id/event_title"
             app:layout_constraintTop_toBottomOf="@id/event_title" />
 
+        <ImageView
+            android:id="@+id/select_plus_icon"
+            android:layout_width="@dimen/resize_person_icon_small"
+            android:layout_height="@dimen/resize_person_icon_small"
+            android:layout_marginStart="@dimen/margin_default"
+            app:layout_constraintBottom_toBottomOf="@id/select"
+            app:layout_constraintEnd_toEndOf="@id/description_plus_icon"
+            app:layout_constraintTop_toTopOf="@id/select"
+            app:srcCompat="@drawable/plus" />
+
         <TextView
             android:id="@+id/date"
             android:layout_width="wrap_content"
@@ -59,6 +69,16 @@
             android:layout_marginTop="@dimen/margin_default"
             app:layout_constraintStart_toStartOf="@+id/select"
             app:layout_constraintTop_toBottomOf="@+id/select" />
+
+        <ImageView
+            android:id="@+id/date_plus_icon"
+            android:layout_width="@dimen/resize_person_icon_small"
+            android:layout_height="@dimen/resize_person_icon_small"
+            android:layout_marginStart="@dimen/margin_default"
+            app:layout_constraintBottom_toBottomOf="@id/date"
+            app:layout_constraintEnd_toEndOf="@id/description_plus_icon"
+            app:layout_constraintTop_toTopOf="@id/date"
+            app:srcCompat="@drawable/plus" />
 
         <TextView
             android:id="@+id/description"
@@ -71,6 +91,16 @@
             app:layout_constraintStart_toStartOf="@+id/date"
             app:layout_constraintTop_toBottomOf="@+id/date" />
 
+        <ImageView
+            android:id="@+id/description_plus_icon"
+            android:layout_width="@dimen/resize_person_icon_small"
+            android:layout_height="@dimen/resize_person_icon_small"
+            android:layout_marginStart="@dimen/margin_default"
+            app:layout_constraintBottom_toBottomOf="@id/description"
+            app:layout_constraintStart_toEndOf="@id/description"
+            app:layout_constraintTop_toTopOf="@id/description"
+            app:srcCompat="@drawable/plus" />
+
         <TextView
             android:id="@+id/save"
             android:layout_width="wrap_content"
@@ -81,6 +111,19 @@
             android:layout_marginTop="@dimen/margin_default"
             app:layout_constraintStart_toStartOf="@+id/description"
             app:layout_constraintTop_toBottomOf="@+id/description" />
+
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/CalenderViewCustom"
+            android:dateTextAppearance="@style/CalenderViewDateCustomText"
+            android:weekDayTextAppearance="@style/CalenderViewWeekCustomText"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.7" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

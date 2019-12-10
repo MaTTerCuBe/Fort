@@ -18,6 +18,7 @@
     <!-- Image resizing -->
     <dimen name="resize_call_icon_medium">30dp</dimen>
     <dimen name="resize_log_event_icon_medium">80dp</dimen>
+    <dimen name="resize_log_event_icon_small">40dp</dimen>
     <dimen name="resize_person_icon_medium">30dp</dimen>
     <dimen name="resize_person_icon_small">15dp</dimen>
     <dimen name="resize_options_icon_small">15dp</dimen>
