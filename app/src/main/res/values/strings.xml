@@ -20,6 +20,8 @@
     <string name="title_contact_Info">Contact Info</string>
     <string name="contact_name">Name</string>
     <string name="contact_phone_number">Phone \nNumber</string>
+    <string name="empty_fields_warning">One of the above fields is empty!</string>
+    <string name="contact_updated">Friend Info Updated</string>
 
 
     <!-- Default Entries -->

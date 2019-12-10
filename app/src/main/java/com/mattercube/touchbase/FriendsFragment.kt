@@ -28,34 +28,30 @@ class FriendsFragment : Fragment() {
 
         populateNamesAndDates()
 
-        optionSelected =context as FriendOptions
+        optionSelected = context as FriendOptions
 
         options_1.setOnClickListener {
-            optionSelected.option1Tapped()
+            optionSelected.optionTapped(1)
         }
 
         options_2.setOnClickListener {
-            optionSelected.option2Tapped()
+            optionSelected.optionTapped(2)
         }
 
         options_3.setOnClickListener {
-            optionSelected.option3Tapped()
+            optionSelected.optionTapped(3)
         }
 
         options_4.setOnClickListener {
-            optionSelected.option4Tapped()
+            optionSelected.optionTapped(4)
         }
 
         options_5.setOnClickListener {
-            optionSelected.option5Tapped()
+            optionSelected.optionTapped(5)
         }
     }
     interface FriendOptions {
-        fun option1Tapped()
-        fun option2Tapped()
-        fun option3Tapped()
-        fun option4Tapped()
-        fun option5Tapped()
+        fun optionTapped(friendSelected: Int)
     }
 
     fun populateNamesAndDates() {

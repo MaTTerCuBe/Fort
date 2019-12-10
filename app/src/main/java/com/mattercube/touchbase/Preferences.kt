@@ -43,11 +43,11 @@ class Preferences (context: Context) {
     }
 
     /* ----- Setting Data Methods ----- */
-    fun setPersonName(personNum: Int, enteredName: String) {
+    fun setPersonName(personNum: Int?, enteredName: String) {
         preferences.edit().putString(friend + personNum, enteredName).apply()
     }
 
-    fun setPersonNumber(personNum: Int, enteredNumber: String) {
+    fun setPersonNumber(personNum: Int?, enteredNumber: String) {
         preferences.edit().putString(friend + personNum, enteredNumber).apply()
     }
 }

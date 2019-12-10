@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.util.Log
 //Made by Roman Khamov
 class MainActivity : AppCompatActivity(), MainMenuFragment.mainMenuOptions,
-                        FriendsFragment.FriendOptions {
+                        FriendsFragment.FriendOptions, ContactInfoFragment.saveButton {
 
     // Fragments
     private val mainMenuFragment = MainMenuFragment()
@@ -53,39 +53,24 @@ class MainActivity : AppCompatActivity(), MainMenuFragment.mainMenuOptions,
     }
 
     /* ----- Interfaces for FriendsFragment ----- */
+    override fun optionTapped(friendSelected: Int) {
+        val bundle = Bundle()
+        bundle.putInt("selectedFriend", friendSelected)
 
-    override fun option1Tapped() {
+        contactInfoFragment.arguments = bundle
+
         manager.beginTransaction()
             .replace(R.id.main_screen, contactInfoFragment)
             .addToBackStack(null)
             .commit()
     }
 
-    override fun option2Tapped() {
+    /* ----- Interface for ContactInfoFragment ----- */
+    override fun saveButtonPressed() {
         manager.beginTransaction()
-            .replace(R.id.main_screen, contactInfoFragment)
+            .replace(R.id.main_screen, friendsFragment)
             .addToBackStack(null)
             .commit()
     }
 
-    override fun option3Tapped() {
-        manager.beginTransaction()
-            .replace(R.id.main_screen, contactInfoFragment)
-            .addToBackStack(null)
-            .commit()
-    }
-
-    override fun option4Tapped() {
-        manager.beginTransaction()
-            .replace(R.id.main_screen, contactInfoFragment)
-            .addToBackStack(null)
-            .commit()
-    }
-
-    override fun option5Tapped() {
-        manager.beginTransaction()
-            .replace(R.id.main_screen, contactInfoFragment)
-            .addToBackStack(null)
-            .commit()
-    }
 }
