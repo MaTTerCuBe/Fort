@@ -5,7 +5,8 @@ import android.os.Bundle
 import android.util.Log
 //Made by Roman Khamov
 class MainActivity : AppCompatActivity(), MainMenuFragment.mainMenuOptions,
-                        FriendsFragment.FriendOptions, ContactInfoFragment.saveButton {
+                        FriendsFragment.FriendOptions, ContactInfoFragment.saveButton,
+                        EventFragment.EventOptions  {
 
     // Fragments
     private val mainMenuFragment = MainMenuFragment()
@@ -16,6 +17,7 @@ class MainActivity : AppCompatActivity(), MainMenuFragment.mainMenuOptions,
 
     // String Names for fragments
     val mainMenuFragmentTag = "MainMenu"
+    val eventFragmentTag    = "EventFragment"
 
     private val manager = supportFragmentManager
 
@@ -35,6 +37,13 @@ class MainActivity : AppCompatActivity(), MainMenuFragment.mainMenuOptions,
 
     /* ----- Interfaces for MainMenuFragment ----- */
     override fun logEventTapped() {
+        var bundle = Bundle()
+        val aFriendwasSelected = false
+
+        bundle.putBoolean("a_friend_was_selected", aFriendwasSelected)
+
+        eventFragment.arguments = bundle
+
         manager.beginTransaction()
             .replace(R.id.main_screen, eventFragment)
             .addToBackStack(null)
@@ -62,13 +71,24 @@ class MainActivity : AppCompatActivity(), MainMenuFragment.mainMenuOptions,
     /* ----- Interfaces for FriendsFragment ----- */
     override fun optionTapped(friendSelected: Int, requestMadeFromFragment: String?) {
         val bundle = Bundle()
-        bundle.putInt("selectedFriend", friendSelected)
+        bundle.putInt("selected_friend", friendSelected)
 
         if (requestMadeFromFragment == mainMenuFragmentTag) {
             contactInfoFragment.arguments = bundle
 
             manager.beginTransaction()
                 .replace(R.id.main_screen, contactInfoFragment)
+                .commit()
+        }
+
+        if (requestMadeFromFragment == eventFragmentTag) {
+            val aFriendwasSelected = true
+            bundle.putBoolean("a_friend_was_selected", aFriendwasSelected)
+
+            eventFragment.arguments = bundle
+
+            manager.beginTransaction()
+                .replace(R.id.main_screen, eventFragment)
                 .commit()
         }
     }
@@ -81,4 +101,16 @@ class MainActivity : AppCompatActivity(), MainMenuFragment.mainMenuOptions,
             .commit()
     }
 
+    /* ----- Interface EventFragment ----- */
+    override fun selectTapped() {
+        val bundle = Bundle()
+        bundle.putString("request_from_fragment", eventFragmentTag)
+
+        friendsFragment.arguments = bundle
+
+        manager.beginTransaction()
+            .replace(R.id.main_screen, friendsFragment)
+            .addToBackStack(null)
+            .commit()
+    }
 }

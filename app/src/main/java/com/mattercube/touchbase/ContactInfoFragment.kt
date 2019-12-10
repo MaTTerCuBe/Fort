@@ -36,7 +36,7 @@ class ContactInfoFragment : Fragment() {
         val emptyFieldWarning = context?.resources?.getString(R.string.empty_fields_warning)
         val infoUpdated       = context?.resources?.getString(R.string.contact_updated)
 
-        friendSelected = arguments?.getInt("selectedFriend")
+        friendSelected = arguments?.getInt("selected_friend")
 
         button_save.setOnClickListener {
 
