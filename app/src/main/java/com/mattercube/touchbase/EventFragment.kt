@@ -2,11 +2,13 @@ package com.mattercube.touchbase
 
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.fragment_event.*
 
 /**
@@ -29,6 +31,8 @@ class EventFragment : Fragment() {
 
         optionSelected = context as EventOptions
 
+        calendarView.visibility = View.GONE
+
         var dateSelected = ""
 
         checkIfFriendAlreadySelected()
@@ -36,12 +40,22 @@ class EventFragment : Fragment() {
         select_plus_icon.setOnClickListener { // This is the select TextView from the XML layout
             optionSelected.selectTapped()
         }
-        
+
+        date_plus_icon.setOnClickListener {
+            showCalendar()
+        }
+
         calendarView.setOnDateChangeListener { calendarView, year, month, day ->
             dateSelected = day.toString() + " " + changeMonthNumberToString(month) +
                             " " + year.toString()
 
             Toast.makeText(context, dateSelected, Toast.LENGTH_SHORT).show()
+
+            hideCalendar()
+            date_plus_icon.visibility = View.INVISIBLE
+            date.setTextColor(resources.getColor(R.color.greyed))
+            date.text = dateSelected
+
         }
     }
 
@@ -55,6 +69,28 @@ class EventFragment : Fragment() {
         select.text = App.savedData!!.getPersonName(personNum)
         select.setTextColor(resources.getColor(R.color.greyed))
         select_plus_icon.visibility = View.INVISIBLE
+    }
+
+    fun showCalendar() {
+
+        Log.i(resources.getString(R.string.notice_me), "Changing visibility, was: ${calendarView.visibility}")
+        calendarView.visibility = View.VISIBLE
+        Log.i(resources.getString(R.string.notice_me), "Now is: ${calendarView.visibility}")
+
+
+        val descriptionParams = description.layoutParams as ConstraintLayout.LayoutParams
+        descriptionParams.topToBottom = calendarView.id
+    }
+
+    fun hideCalendar() {
+
+        Log.i(resources.getString(R.string.notice_me), "Changing visibility, should be GONE")
+        calendarView.visibility = View.GONE
+        Log.i(resources.getString(R.string.notice_me), "Is acturllY ${calendarView.visibility}")
+
+        val descriptionParams = description.layoutParams as ConstraintLayout.LayoutParams
+        descriptionParams.topToBottom = date.id
+
     }
 
     fun changeMonthNumberToString(monthNumber: Int?): String {

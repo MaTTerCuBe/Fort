@@ -33,6 +33,8 @@
     <!-- File Names -->
     <string name="shared_preferences_file_name">com.mattercube.touchbase.preferences</string>
 
+    <!-- Miscelanious -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="notice_me">NOTICE ME SENPAI!!!!</string>
 
 </resources>
