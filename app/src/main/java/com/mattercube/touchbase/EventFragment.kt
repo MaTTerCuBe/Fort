@@ -33,13 +33,15 @@ class EventFragment : Fragment() {
 
         calendarView.visibility = View.GONE
 
+        val emptyFieldsMessage  = resources.getString(R.string.empty_fields_warning)
+        val entryUpdated        = resources.getString(R.string.entry_saved)
         var dateSelected = ""
 
         checkIfOptionAlreadySelected()
 
         clear_icon.setOnClickListener {
             App.savedData!!.clearTempData()
-            optionSelected.clearFieldsTapped()
+            optionSelected.leaveEventFragmentGoBackToMainMenu()
         }
 
         select_plus_icon.setOnClickListener { // This is the select TextView from the XML layout
@@ -74,6 +76,33 @@ class EventFragment : Fragment() {
 
             optionSelected.descriptionTapped()
         }
+
+        save.setOnClickListener {
+            val saveButtonCurrentStatus = save.currentTextColor
+
+            when (saveButtonCurrentStatus) {
+
+                resources.getColor(R.color.greyed)  -> {
+                    Toast.makeText(
+                        context, emptyFieldsMessage,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+
+                resources.getColor(R.color.white)   ->  {
+                    App.savedData!!.saveTempData()
+                    Toast.makeText(context, entryUpdated, Toast.LENGTH_SHORT).show()
+
+                    // Testing
+                    var testDate = App.savedData!!.getPersonLastDate(1)
+                    var testDescription = App.savedData!!.getPersonLastDescription(1)
+
+                    Log.i("NOTICE ME SENPAI!!!", "Date: $testDate, Description: $testDescription#")
+
+                    optionSelected.leaveEventFragmentGoBackToMainMenu()
+                }
+            }
+        }
     }
 
     private fun checkIfOptionAlreadySelected() {
@@ -99,7 +128,7 @@ class EventFragment : Fragment() {
         }
 
         // Check if Description has been set
-        val tempEntry = App.savedData!!.getTempEntry()
+        val tempEntry = App.savedData!!.getTempDescription()
 
         if (tempEntry != "default") { // TO DO: Change all of the default values in Preferences.kt to string resources
             changeDescriptionStatus()
@@ -175,6 +204,6 @@ class EventFragment : Fragment() {
     interface EventOptions {
         fun selectTapped()
         fun descriptionTapped()
-        fun clearFieldsTapped()
+        fun leaveEventFragmentGoBackToMainMenu()
     }
 }

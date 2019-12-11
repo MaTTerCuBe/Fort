@@ -100,7 +100,7 @@ class MainActivity : AppCompatActivity(), MainMenuFragment.mainMenuOptions,
     }
 
     /* ----- Interface EventFragment ----- */
-    override fun clearFieldsTapped() {
+    override fun leaveEventFragmentGoBackToMainMenu() {
         manager.beginTransaction()
             .remove(eventFragment)
             .replace(R.id.main_screen, mainMenuFragment)

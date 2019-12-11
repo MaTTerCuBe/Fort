@@ -18,7 +18,6 @@ class Preferences (context: Context) {
     val friend      = "friend_"
     val number      = "_number"
     val entry       = "_entry"
-    val last        = "_last"
     val total       = "_total"
     val date        = "_date"
     val description = "_description"
@@ -27,11 +26,13 @@ class Preferences (context: Context) {
     var key = ""
 
     // Default values
+    val defaultTotal    =   "0"
     val defaultName     =   "default"
     val defaultNumber   =   "default"
     val defaultDate     =   "default"
-    val defaultEntry    =   "default"
+    val defaultDescription    =   "default"
 
+    val senpai = "Preference-Senpai!!"
 
     /* ----- Retrieving Data Methods ----- */
 
@@ -45,9 +46,23 @@ class Preferences (context: Context) {
         return preferences.getString(key, defaultNumber)
     }
 
+    fun getPersonTotalEntries(personNum: Int?): String? {
+        key = friend + personNum + total
+        return preferences.getString(key, defaultTotal)
+    }
+
     fun getPersonLastDate(personNum: Int?): String? {
-        key = friend + personNum + entry + last + date
+        val currentTotal = getPersonTotalEntries(personNum)
+
+        key = friend + personNum + entry + currentTotal + date
         return preferences.getString(key, defaultDate)
+    }
+
+    fun getPersonLastDescription(personNum: Int?): String? {
+        val currentTotal = getPersonTotalEntries(personNum)
+
+        key = friend + personNum + entry + currentTotal + description
+        return preferences.getString(key, defaultDescription)
     }
 
     /* ----- Setting Data Methods ----- */
@@ -61,6 +76,44 @@ class Preferences (context: Context) {
         preferences.edit().putString(key, enteredNumber).apply()
     }
 
+    fun incrementPersonTotalEntries(personNum: Int?) {
+        val newTotal: Int = getPersonTotalEntries(personNum)!!.toInt() + 1
+
+        Log.i(senpai, "chcking newTotal in incrementTotal: $newTotal")
+
+        key = friend + personNum + total
+
+        Log.i(senpai, "chcking key in incrementTotal: $key")
+
+        preferences.edit().putString(key, newTotal.toString()).apply()
+    }
+
+    fun setPersonEntryDate(personNum: Int?, enteredEntry: Int?, enteredDate: String?) {
+
+        Log.i(senpai, "chcking personNum in setDate: $personNum")
+        Log.i(senpai, "chcking enteredEntry in setDate: $enteredEntry")
+        Log.i(senpai, "chcking enteredDate in setDate: $enteredDate")
+
+        key = friend + personNum + entry + enteredEntry + date
+
+        Log.i(senpai, "chcking key in setDate: $key")
+
+        preferences.edit().putString(key, enteredDate).apply()
+    }
+
+    fun setPersonEntryDescription(personNum: Int?, enteredEntry: Int?, enteredDescription: String?) {
+
+        Log.i(senpai, "chcking personNum in setDescrpt: $personNum")
+        Log.i(senpai, "chcking enteredEntry in setDescrpt: $enteredEntry")
+        Log.i(senpai, "chcking enteredDescription in setDescrpt: $enteredDescription")
+
+        key = friend + personNum + entry + enteredEntry + description
+
+        Log.i(senpai, "chcking key in setDescrpt: $key")
+
+        preferences.edit().putString(key, enteredDescription).apply()
+    }
+
     /* ----- Retrieving Temp Data ----- */
     fun getTempPerson(): String? {
         key = friend + temporary
@@ -72,10 +125,13 @@ class Preferences (context: Context) {
         return preferences.getString(key, defaultDate)
     }
 
-    fun getTempEntry(): String? {
-        key = friend + temporary + entry
-        return preferences.getString(key, defaultEntry)
+    fun getTempDescription(): String? {
+        key = friend + temporary + description
+        return preferences.getString(key, defaultDescription)
     }
+
+
+    /*************************** TEMPORARY DATA FUNCTIONS ***************************/
 
     /* ----- Setting Temp Data ----- */
     fun setTempName(enteredName: String) {
@@ -88,15 +144,31 @@ class Preferences (context: Context) {
         preferences.edit().putString(key, enteredDate).apply()
     }
 
-    fun setTempEntry(enteredEntry: String) {
-        key = friend + temporary + entry
-        preferences.edit().putString(key, enteredEntry).apply()
+    fun setTempDescription(enteredDescription: String) {
+        key = friend + temporary + description
+        preferences.edit().putString(key, enteredDescription).apply()
+    }
+
+    // Saving Temp Data to a Permanent Person
+    fun saveTempData() {
+        val personNum = getTempPerson()!!.toInt()
+
+        Log.i(senpai, "chcking personNum in saveTemp: $personNum")
+
+        incrementPersonTotalEntries(personNum)
+        val currentEntry: Int = getPersonTotalEntries(personNum)!!.toInt()
+
+        Log.i(senpai, "chcking currentEntry in saveTemp: $currentEntry")
+
+        setPersonEntryDate(personNum, currentEntry, getTempDate())
+        setPersonEntryDescription(personNum, currentEntry, getTempDescription())
+        clearTempData()
     }
 
     // Clearing Temp Data
     fun clearTempData() {
         setTempName(defaultName)
         setTempDate(defaultDate)
-        setTempEntry(defaultEntry)
+        setTempDescription(defaultDescription)
     }
 }

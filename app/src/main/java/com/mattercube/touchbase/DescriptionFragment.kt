@@ -40,7 +40,7 @@ class DescriptionFragment : Fragment() {
                 Toast.makeText(context, emptyFieldWarning, Toast.LENGTH_LONG).show()
             }
             else {
-                App.savedData!!.setTempEntry(inputedEntry)
+                App.savedData!!.setTempDescription(inputedEntry)
 
                 buttonPressedDescription.descriptionSaveButtonPressed()
             }
