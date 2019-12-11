@@ -12,6 +12,7 @@
 
     <dimen name="margin_default">16dp</dimen>
     <dimen name="margin_large">32dp</dimen>
+    <dimen name="margin_even_large">100dp</dimen>
     <dimen name="margin_small">10dp</dimen>
     <dimen name="margin_even_smaller">6dp</dimen>
 

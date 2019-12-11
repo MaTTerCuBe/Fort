@@ -9,17 +9,16 @@
     android:background="@color/colorPrimary">
 
     <TextView
-        android:id="@+id/main_screen"
+        android:id="@+id/event_title"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/trispace"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_default"
         android:layout_marginEnd="@dimen/margin_default"
-        android:layout_marginTop="@dimen/margin_default"
-        android:layout_weight="1"
-        android:background="@color/greyed"
-        android:text="@string/description_event"
+        android:layout_weight="0"
+        android:text="@string/event_title"
         android:textColor="@color/white"
-        android:textSize="@dimen/text_size_default" />
+        android:textSize="@dimen/main_header"
+        android:layout_marginTop="@dimen/margin_even_large"/>
 
     <TextView
         android:id="@+id/touch_base_title"
@@ -30,19 +29,8 @@
         android:layout_weight="0"
         android:text="@string/touch_base_fragment_title"
         android:textColor="@color/white"
-        android:textSize="@dimen/main_header" />
-
-    <TextView
-        android:id="@+id/middle_panel"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/trispace"
-        android:layout_marginStart="@dimen/margin_default"
-        android:layout_marginEnd="@dimen/margin_default"
-        android:layout_weight="1"
-        android:background="@color/greyed"
-        android:text="@string/description_touch_base"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_size_default"/>
+        android:textSize="@dimen/main_header"
+        android:layout_marginTop="@dimen/margin_even_large"/>
 
     <TextView
         android:id="@+id/friends_title"
@@ -53,19 +41,7 @@
         android:layout_weight="0"
         android:text="@string/friends_fragment_title"
         android:textColor="@color/white"
-        android:textSize="@dimen/main_header" />
-
-    <TextView
-        android:id="@+id/bottom_panel"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/trispace"
-        android:layout_marginStart="@dimen/margin_default"
-        android:layout_marginEnd="@dimen/margin_default"
-        android:layout_marginBottom="@dimen/margin_default"
-        android:layout_weight="1"
-        android:background="@color/greyed"
-        android:text="@string/description_friends"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_size_default"/>
+        android:textSize="@dimen/main_header"
+        android:layout_marginTop="@dimen/margin_even_large"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

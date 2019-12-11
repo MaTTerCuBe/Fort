@@ -28,15 +28,15 @@ class MainMenuFragment : Fragment() {
 
         optionSelected =context as mainMenuOptions
 
-        main_screen.setOnClickListener {
+        event_title.setOnClickListener {
             optionSelected.logEventTapped()
         }
 
-        middle_panel.setOnClickListener {
+        touch_base_title.setOnClickListener {
             optionSelected.touchBaseTapped()
         }
 
-        bottom_panel.setOnClickListener {
+        friends_title.setOnClickListener {
             optionSelected.friendsTapped()
         }
     }
