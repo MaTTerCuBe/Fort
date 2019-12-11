@@ -11,7 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_touch.*
 import java.text.SimpleDateFormat
-import java.time.format.DateTimeFormatter
+import java.time.Duration
 import java.util.*
 
 /**
@@ -36,9 +36,9 @@ class TouchFragment : Fragment() {
 
         val today = getCurrentDate()
 
-        var testSubject = App.savedData!!.getPersonLastDate(1)
+        var testSubject = App.savedData!!.getPersonLastDateFormatted(1)
 
-        checkTimeSinceLastTouchBase(1, testSubject)
+        checkTimeSinceLastTouchBase(1, today)
 
         call_icon1.setOnClickListener {
             makeCall(1)
@@ -53,7 +53,7 @@ class TouchFragment : Fragment() {
         val simplifiedFormat = SimpleDateFormat("yyyy-dd-M", Locale.US)
         val currentDate = simplifiedFormat.format(Date())
 
-        Log.i("PLEASE!!!!", "C = $currentDate ")
+        //Log.i("PLEASE!!!!", "C = $currentDate ")
         return currentDate
     }
 
@@ -65,11 +65,86 @@ class TouchFragment : Fragment() {
 
     }
 
-    fun checkTimeSinceLastTouchBase(personNum: Int?, currentDate: String?) {
+    fun checkTimeSinceLastTouchBase(personNum: Int?, currentDate: String?): Long? {
 
-        var timeSinceLastTouchBase = App.savedData!!.getPersonLastDateFormatted(personNum)
+        val lastTouchDate = App.savedData!!.getPersonLastDateFormatted(personNum)
 
-        Log.i("PLEEASE BE TRUEEEE", "The saved, formatted date was: $timeSinceLastTouchBase")
+        val lastTouchDateInDays = convertToDaysOnly(lastTouchDate)
+        val currentDateInDays = convertToDaysOnly(currentDate)
+
+        val differenceInDays = currentDateInDays - lastTouchDateInDays
+
+        Log.i("Oh boy do I hope this works", "difference in days: $differenceInDays")
+        return differenceInDays
+    }
+
+    fun convertToDaysOnly(enteredDate: String?): Long {
+
+        val logPoint = "Logging in convertToDaysOnly"
+        Log.i(logPoint, "enteredDate: $enteredDate")
+
+        var totalDays: Long = 0
+        var daysSoFar: Long
+        var years: Long
+        var months: Long
+        var days: Long
+        var leapyears: Long
+        var isLeapYear = false
+
+        // These are based off of the format "YYYY-MM-dd"
+        val yearSubStringStart = 0
+        val yearSubStringEnd = 4
+        val monthSubStringStart = 5
+        val monthSubStringEnd = 7
+        val daySubStringStart = 8
+
+        val enteredYear = enteredDate!!.substring(yearSubStringStart, yearSubStringEnd)
+        Log.i(logPoint, "enteredYear = $enteredYear")
+
+        years = enteredYear.toLong()
+
+        daysSoFar = years * 365
+
+        if ((years % 4) == 0.toLong())   isLeapYear = true
+
+        leapyears = years / 4
+
+        daysSoFar += leapyears
+
+        totalDays += daysSoFar
+
+        val enteredMonths = enteredDate!!.substring(monthSubStringStart, monthSubStringEnd)
+        Log.i(logPoint, "enteredMonths: $enteredMonths")
+
+        months = enteredMonths.toLong()
+
+        when (months) {
+            0.toLong()   ->  daysSoFar = 0
+            1.toLong()   ->  daysSoFar = 31
+            2.toLong()   ->  daysSoFar = 59
+            3.toLong()   ->  daysSoFar = 90
+            4.toLong()   ->  daysSoFar = 120
+            5.toLong()   ->  daysSoFar = 151
+            6.toLong()   ->  daysSoFar = 182
+            7.toLong()   ->  daysSoFar = 213
+            8.toLong()   ->  daysSoFar = 243
+            9.toLong()   ->  daysSoFar = 274
+            10.toLong()   ->  daysSoFar = 304
+            11.toLong()   ->  daysSoFar = 335
+        }
+
+        if (isLeapYear) ++daysSoFar
+
+        totalDays += daysSoFar
+
+        val enteredDays = enteredDate!!.substring(daySubStringStart)
+        Log.i(logPoint, "enteredDays: $enteredDays")
+
+        days = enteredDays.toLong()
+
+        totalDays += days
+
+        return totalDays
     }
 
     fun makeCall(toPersonNum: Int?) {
