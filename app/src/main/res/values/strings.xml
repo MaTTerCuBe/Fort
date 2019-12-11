@@ -23,6 +23,9 @@
     <string name="empty_fields_warning">One of the above fields is empty!</string>
     <string name="contact_updated">Friend Info Updated</string>
 
+    <!-- Description Fragment -->
+    <string name="title_description">Entry Description</string>
+    <string name="empty_description_warning">please enter a description</string>
 
     <!-- Default Entries -->
     <string name="default_user_name">Your Friend</string>
