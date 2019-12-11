@@ -56,7 +56,11 @@ class EventFragment : Fragment() {
             dateSelected = day.toString() + " " + changeMonthNumberToString(month) +
                             " " + year.toString()
 
+            val dateSelectedComparisonFormat = year.toString() + "-" + month.toString() +
+                                                "-" + day.toString()
+
             App.savedData!!.setTempDate(dateSelected)
+            App.savedData!!.setTempDateFormatted(dateSelectedComparisonFormat)
 
             Toast.makeText(context, dateSelected, Toast.LENGTH_SHORT).show()
 

@@ -4,17 +4,22 @@ package com.mattercube.touchbase
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_touch.*
+import java.text.SimpleDateFormat
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 /**
  * Created by Roman Khamov
  * Inspired by:
  *      - Atif Pervaiz from https://devofandroid.blogspot.com/2018/11/dialer-intent-android-studio-kotlin.html
  *      - ChiragP Patel from https://medium.com/@chiragpatel_52497/send-sms-from-android-application-a8a9c1ada8b7
+ *      - Soleil from https://stackoverflow.com/questions/47006254/how-to-get-current-local-date-and-time-in-kotlin
  */
 class TouchFragment : Fragment() {
 
@@ -29,6 +34,12 @@ class TouchFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        val today = getCurrentDate()
+
+        var testSubject = App.savedData!!.getPersonLastDate(1)
+
+        checkTimeSinceLastTouchBase(1, testSubject)
+
         call_icon1.setOnClickListener {
             makeCall(1)
         }
@@ -36,6 +47,29 @@ class TouchFragment : Fragment() {
         text_icon1.setOnClickListener {
             sendSMS(1)
         }
+    }
+
+    fun getCurrentDate(): String? {
+        val simplifiedFormat = SimpleDateFormat("yyyy-dd-M", Locale.US)
+        val currentDate = simplifiedFormat.format(Date())
+
+        Log.i("PLEASE!!!!", "C = $currentDate ")
+        return currentDate
+    }
+
+    // TO DO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    fun setFriendsInNeedOfTouchBase() {
+
+        val hardCodedFriendsPersonNumbers = arrayOf(1, 2, 3, 4, 5)
+
+
+    }
+
+    fun checkTimeSinceLastTouchBase(personNum: Int?, currentDate: String?) {
+
+        var timeSinceLastTouchBase = App.savedData!!.getPersonLastDateFormatted(personNum)
+
+        Log.i("PLEEASE BE TRUEEEE", "The saved, formatted date was: $timeSinceLastTouchBase")
     }
 
     fun makeCall(toPersonNum: Int?) {
@@ -60,5 +94,9 @@ class TouchFragment : Fragment() {
         val shareIntent = Intent.createChooser(messageIntent, null)
 
         startActivity(shareIntent)
+    }
+
+    interface touchFragmentButtons {
+        fun tappedLogEvent()
     }
 }

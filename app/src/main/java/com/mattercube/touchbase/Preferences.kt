@@ -20,6 +20,7 @@ class Preferences (context: Context) {
     val entry       = "_entry"
     val total       = "_total"
     val date        = "_date"
+    val formatted   = "_formatted"
     val description = "_description"
     val temporary   = "_temporary"
 
@@ -55,6 +56,13 @@ class Preferences (context: Context) {
         val currentTotal = getPersonTotalEntries(personNum)
 
         key = friend + personNum + entry + currentTotal + date
+        return preferences.getString(key, defaultDate)
+    }
+
+    fun getPersonLastDateFormatted(personNum: Int?): String? {
+        val currentTotal = getPersonTotalEntries(personNum)
+
+        key = friend + personNum + entry + currentTotal + date + formatted
         return preferences.getString(key, defaultDate)
     }
 
@@ -101,6 +109,11 @@ class Preferences (context: Context) {
         preferences.edit().putString(key, enteredDate).apply()
     }
 
+    fun setPersonEntryDateFormatted(personNum: Int?, enteredEntry: Int?, enteredDate: String?) {
+        key = friend + personNum + entry + enteredEntry + date + formatted
+        preferences.edit().putString(key, enteredDate).apply()
+    }
+
     fun setPersonEntryDescription(personNum: Int?, enteredEntry: Int?, enteredDescription: String?) {
 
         Log.i(senpai, "chcking personNum in setDescrpt: $personNum")
@@ -125,6 +138,11 @@ class Preferences (context: Context) {
         return preferences.getString(key, defaultDate)
     }
 
+    fun getTempDateFormatted(): String? {
+        key = friend + temporary + date + formatted
+        return preferences.getString(key, defaultDate)
+    }
+
     fun getTempDescription(): String? {
         key = friend + temporary + description
         return preferences.getString(key, defaultDescription)
@@ -141,6 +159,11 @@ class Preferences (context: Context) {
 
     fun setTempDate(enteredDate: String) {
         key = friend + temporary + date
+        preferences.edit().putString(key, enteredDate).apply()
+    }
+
+    fun setTempDateFormatted(enteredDate: String) {
+        key = friend + temporary + date + formatted
         preferences.edit().putString(key, enteredDate).apply()
     }
 
@@ -161,6 +184,7 @@ class Preferences (context: Context) {
         Log.i(senpai, "chcking currentEntry in saveTemp: $currentEntry")
 
         setPersonEntryDate(personNum, currentEntry, getTempDate())
+        setPersonEntryDateFormatted(personNum, currentEntry, getTempDateFormatted())
         setPersonEntryDescription(personNum, currentEntry, getTempDescription())
         clearTempData()
     }
