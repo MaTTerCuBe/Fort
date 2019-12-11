@@ -58,6 +58,14 @@ class TouchFragment : Fragment() {
             buttonPressed.tappedLogEvent()
         }
 
+        call_icon2.setOnClickListener {
+            makeCall(2)
+        }
+
+        text_icon2.setOnClickListener {
+            sendSMS(2)
+        }
+
         log_event2.setOnClickListener {
             buttonPressed.tappedLogEvent()
         }
