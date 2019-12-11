@@ -23,6 +23,8 @@ import java.util.*
  */
 class TouchFragment : Fragment() {
 
+    private lateinit var buttonPressed: touchFragmentButtons
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,11 +36,15 @@ class TouchFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        buttonPressed = context as touchFragmentButtons
+
         val today = getCurrentDate()
 
-        var testSubject = App.savedData!!.getPersonLastDateFormatted(1)
+        friend_name1.text = App.savedData!!.getPersonName(1)
+        friend_name2.text = App.savedData!!.getPersonName(2)
 
-        checkTimeSinceLastTouchBase(1, today)
+        touch_counter1.text = checkTimeSinceLastTouchBase(1, today).toString()
+        touch_counter2.text = checkTimeSinceLastTouchBase(2, today).toString()
 
         call_icon1.setOnClickListener {
             makeCall(1)
@@ -46,6 +52,14 @@ class TouchFragment : Fragment() {
 
         text_icon1.setOnClickListener {
             sendSMS(1)
+        }
+
+        log_event1.setOnClickListener {
+            buttonPressed.tappedLogEvent()
+        }
+
+        log_event2.setOnClickListener {
+            buttonPressed.tappedLogEvent()
         }
     }
 

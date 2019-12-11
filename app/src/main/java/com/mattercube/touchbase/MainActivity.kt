@@ -6,7 +6,8 @@ import android.util.Log
 //Made by Roman Khamov
 class MainActivity : AppCompatActivity(), MainMenuFragment.mainMenuOptions,
                         FriendsFragment.FriendOptions, ContactInfoFragment.ContactSaveButton,
-                        EventFragment.EventOptions, DescriptionFragment.DescriptionSaveButton  {
+                        EventFragment.EventOptions, DescriptionFragment.DescriptionSaveButton,
+                        TouchFragment.touchFragmentButtons {
 
     // Fragments
     private val mainMenuFragment = MainMenuFragment()
@@ -130,4 +131,10 @@ class MainActivity : AppCompatActivity(), MainMenuFragment.mainMenuOptions,
             .replace(R.id.main_screen, eventFragment)
             .commit()
     }
+
+    override fun tappedLogEvent() {
+        manager.beginTransaction()
+            .replace(R.id.main_screen, eventFragment)
+            .addToBackStack(null)
+            .commit()    }
 }
