@@ -22,30 +22,32 @@ class Preferences (context: Context) {
     val total       = "_total"
     val date        = "_date"
     val description = "_description"
+    val temporary   = "_temporary"
 
     var key = ""
 
     // Default values
-    val defName =   "A Test"
-    val defNumber   = "1234567890"
-    val defDate     = "25 Oct 2019"
+    val defaultName     =   "default"
+    val defaultNumber   =   "default"
+    val defaultDate     =   "default"
+    val defaultEntry    =   "default"
 
 
     /* ----- Retrieving Data Methods ----- */
 
     fun getPersonName(personNum: Int?): String? {
         key = friend + personNum
-        return preferences.getString(key, defName)
+        return preferences.getString(key, defaultName)
     }
 
     fun getPersonNumber(personNum: Int?): String? {
         key = friend + personNum + number
-        return preferences.getString(key, defNumber)
+        return preferences.getString(key, defaultNumber)
     }
 
-    fun getPersonLastDate (personNum: Int?): String? {
+    fun getPersonLastDate(personNum: Int?): String? {
         key = friend + personNum + entry + last + date
-        return preferences.getString(key, defDate)
+        return preferences.getString(key, defaultDate)
     }
 
     /* ----- Setting Data Methods ----- */
@@ -57,5 +59,44 @@ class Preferences (context: Context) {
     fun setPersonNumber(personNum: Int?, enteredNumber: String) {
         key = friend + personNum + number
         preferences.edit().putString(key, enteredNumber).apply()
+    }
+
+    /* ----- Retrieving Temp Data ----- */
+    fun getTempPerson(): String? {
+        key = friend + temporary
+        return preferences.getString(key, defaultName)
+    }
+
+    fun getTempDate(): String? {
+        key = friend + temporary + date
+        return preferences.getString(key, defaultDate)
+    }
+
+    fun getTempEntry(): String? {
+        key = friend + temporary + entry
+        return preferences.getString(key, defaultEntry)
+    }
+
+    /* ----- Setting Temp Data ----- */
+    fun setTempName(enteredName: String) {
+        key = friend + temporary
+        preferences.edit().putString(key, enteredName).apply()
+    }
+
+    fun setTempDate(enteredDate: String) {
+        key = friend + temporary + date
+        preferences.edit().putString(key, enteredDate).apply()
+    }
+
+    fun setTempEntry(enteredEntry: String) {
+        key = friend + temporary + entry
+        preferences.edit().putString(key, enteredEntry).apply()
+    }
+
+    // Clearing Temp Data
+    fun clearTempData() {
+        setTempName(defaultName)
+        setTempDate(defaultDate)
+        setTempEntry(defaultEntry)
     }
 }

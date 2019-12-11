@@ -46,25 +46,13 @@
             android:id="@+id/last_touch_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:textSize="@dimen/text_size_small"
             android:text="@string/default_last_touch"
             android:textColor="@color/white"
+            android:textSize="@dimen/text_size_small"
+            android:layout_marginEnd="@dimen/margin_default"
             app:layout_constraintBottom_toBottomOf="@id/user_name_1"
-            app:layout_constraintStart_toEndOf="@id/user_name_1"
-            app:layout_constraintTop_toTopOf="@id/user_name_1" />
-
-        <ImageView
-            android:id="@+id/options_1"
-            android:layout_width="@dimen/resize_options_icon_small"
-            android:layout_height="@dimen/resize_options_icon_small"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintBottom_toBottomOf="@id/last_touch_1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@id/last_touch_1"
-            app:layout_constraintTop_toTopOf="@id/last_touch_1"
-            app:srcCompat="@drawable/options_icon" />
+            app:layout_constraintTop_toTopOf="@id/user_name_1" />
 
         <!-- Second Friend -->
         <ImageView
@@ -94,25 +82,13 @@
             android:id="@+id/last_touch_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:textSize="@dimen/text_size_small"
             android:text="@string/default_last_touch"
             android:textColor="@color/white"
+            android:textSize="@dimen/text_size_small"
+            android:layout_marginEnd="@dimen/margin_default"
             app:layout_constraintBottom_toBottomOf="@id/user_name_2"
-            app:layout_constraintStart_toEndOf="@id/user_name_2"
-            app:layout_constraintTop_toTopOf="@id/user_name_2" />
-
-        <ImageView
-            android:id="@+id/options_2"
-            android:layout_width="@dimen/resize_options_icon_small"
-            android:layout_height="@dimen/resize_options_icon_small"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintBottom_toBottomOf="@id/last_touch_2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@id/last_touch_2"
-            app:layout_constraintTop_toTopOf="@id/last_touch_2"
-            app:srcCompat="@drawable/options_icon" />
+            app:layout_constraintTop_toTopOf="@id/user_name_2" />
 
         <!-- Third Friend -->
         <ImageView
@@ -142,25 +118,13 @@
             android:id="@+id/last_touch_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:textSize="@dimen/text_size_small"
             android:text="@string/default_last_touch"
             android:textColor="@color/white"
+            android:textSize="@dimen/text_size_small"
+            android:layout_marginEnd="@dimen/margin_default"
             app:layout_constraintBottom_toBottomOf="@id/user_name_3"
-            app:layout_constraintStart_toEndOf="@id/user_name_3"
-            app:layout_constraintTop_toTopOf="@id/user_name_3" />
-
-        <ImageView
-            android:id="@+id/options_3"
-            android:layout_width="@dimen/resize_options_icon_small"
-            android:layout_height="@dimen/resize_options_icon_small"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintBottom_toBottomOf="@id/last_touch_3"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@id/last_touch_3"
-            app:layout_constraintTop_toTopOf="@id/last_touch_3"
-            app:srcCompat="@drawable/options_icon" />
+            app:layout_constraintTop_toTopOf="@id/user_name_3" />
 
         <!-- Fourth Friend -->
         <ImageView
@@ -190,25 +154,13 @@
             android:id="@+id/last_touch_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:textSize="@dimen/text_size_small"
             android:text="@string/default_last_touch"
             android:textColor="@color/white"
+            android:textSize="@dimen/text_size_small"
+            android:layout_marginEnd="@dimen/margin_default"
             app:layout_constraintBottom_toBottomOf="@id/user_name_4"
-            app:layout_constraintStart_toEndOf="@id/user_name_4"
-            app:layout_constraintTop_toTopOf="@id/user_name_4" />
-
-        <ImageView
-            android:id="@+id/options_4"
-            android:layout_width="@dimen/resize_options_icon_small"
-            android:layout_height="@dimen/resize_options_icon_small"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintBottom_toBottomOf="@id/last_touch_4"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@id/last_touch_4"
-            app:layout_constraintTop_toTopOf="@id/last_touch_4"
-            app:srcCompat="@drawable/options_icon" />
+            app:layout_constraintTop_toTopOf="@id/user_name_4" />
 
         <!-- Fifth Friend -->
         <ImageView
@@ -238,25 +190,13 @@
             android:id="@+id/last_touch_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:textSize="@dimen/text_size_small"
             android:text="@string/default_last_touch"
             android:textColor="@color/white"
+            android:textSize="@dimen/text_size_small"
+            android:layout_marginEnd="@dimen/margin_default"
             app:layout_constraintBottom_toBottomOf="@id/user_name_5"
-            app:layout_constraintStart_toEndOf="@id/user_name_5"
-            app:layout_constraintTop_toTopOf="@id/user_name_5" />
-
-        <ImageView
-            android:id="@+id/options_5"
-            android:layout_width="@dimen/resize_options_icon_small"
-            android:layout_height="@dimen/resize_options_icon_small"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintBottom_toBottomOf="@id/last_touch_5"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@id/last_touch_5"
-            app:layout_constraintTop_toTopOf="@id/last_touch_5"
-            app:srcCompat="@drawable/options_icon" />
+            app:layout_constraintTop_toTopOf="@id/user_name_5" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -35,7 +35,12 @@ class EventFragment : Fragment() {
 
         var dateSelected = ""
 
-        checkIfFriendAlreadySelected()
+        checkIfOptionAlreadySelected()
+
+        clear_icon.setOnClickListener {
+            App.savedData!!.clearTempData()
+            optionSelected.clearFieldsTapped()
+        }
 
         select_plus_icon.setOnClickListener { // This is the select TextView from the XML layout
             optionSelected.selectTapped()
@@ -49,29 +54,81 @@ class EventFragment : Fragment() {
             dateSelected = day.toString() + " " + changeMonthNumberToString(month) +
                             " " + year.toString()
 
+            App.savedData!!.setTempDate(dateSelected)
+
             Toast.makeText(context, dateSelected, Toast.LENGTH_SHORT).show()
 
             hideCalendar()
-            date_plus_icon.visibility = View.INVISIBLE
-            date.setTextColor(resources.getColor(R.color.greyed))
-            date.text = dateSelected
+            changeDateToTempDate()
 
+        }
+
+        description_plus_icon.setOnClickListener {
+            var aFriendWasAlreadySelected = false
+            var selectViewDefaultValue = resources.getString(R.string.select)
+            var theSelectedFriend = arguments!!.getInt("selected_friend")
+
+            if (select.text != selectViewDefaultValue) {
+                aFriendWasAlreadySelected =  true
+            }
+
+            optionSelected.descriptionTapped()
         }
     }
 
-    fun checkIfFriendAlreadySelected() {
-        if (arguments!!.getBoolean("a_friend_was_selected")) {
-            changeSelectToName(arguments!!.getInt("selected_friend"))
+    private fun checkIfOptionAlreadySelected() {
+
+        var isNameSet           = false
+        var isDateSet           = false
+        var isDescriptionSet    = false
+
+        // Check if friend has been set
+        val tempName = App.savedData!!.getTempPerson()
+
+        if (tempName != "default") { // TO DO: Change all of the default values in Preferences.kt to string resources
+            changeSelectToName(tempName!!.toInt())
+            isNameSet = true
+        }
+
+        // Check if Date has been set
+        val tempDate = App.savedData!!.getTempDate()
+
+        if (tempDate != "default") { // TO DO: Change all of the default values in Preferences.kt to string resources
+            changeDateToTempDate()
+            isDateSet = true
+        }
+
+        // Check if Description has been set
+        val tempEntry = App.savedData!!.getTempEntry()
+
+        if (tempEntry != "default") { // TO DO: Change all of the default values in Preferences.kt to string resources
+            changeDescriptionStatus()
+            isDescriptionSet = true
+        }
+
+        if (isNameSet && isDateSet && isDescriptionSet) {
+            save.setTextColor(resources.getColor(R.color.white))
         }
     }
 
-    fun changeSelectToName(personNum: Int?){
+    private fun changeSelectToName(personNum: Int?){
         select.text = App.savedData!!.getPersonName(personNum)
         select.setTextColor(resources.getColor(R.color.greyed))
         select_plus_icon.visibility = View.INVISIBLE
     }
 
-    fun showCalendar() {
+    private fun changeDateToTempDate() {
+        date_plus_icon.visibility = View.INVISIBLE
+        date.setTextColor(resources.getColor(R.color.greyed))
+        date.text = App.savedData!!.getTempDate()
+    }
+
+    private fun changeDescriptionStatus() {
+        description_plus_icon.visibility = View.INVISIBLE
+        description.setTextColor(resources.getColor(R.color.greyed))
+    }
+
+    private fun showCalendar() {
 
         Log.i(resources.getString(R.string.notice_me), "Changing visibility, was: ${calendarView.visibility}")
         calendarView.visibility = View.VISIBLE
@@ -82,7 +139,7 @@ class EventFragment : Fragment() {
         descriptionParams.topToBottom = calendarView.id
     }
 
-    fun hideCalendar() {
+    private fun hideCalendar() {
 
         Log.i(resources.getString(R.string.notice_me), "Changing visibility, should be GONE")
         calendarView.visibility = View.GONE
@@ -93,7 +150,7 @@ class EventFragment : Fragment() {
 
     }
 
-    fun changeMonthNumberToString(monthNumber: Int?): String {
+    private fun changeMonthNumberToString(monthNumber: Int?): String {
 
         var monthString = ""
 
@@ -117,5 +174,7 @@ class EventFragment : Fragment() {
 
     interface EventOptions {
         fun selectTapped()
+        fun descriptionTapped()
+        fun clearFieldsTapped()
     }
 }

@@ -2,7 +2,6 @@ package com.mattercube.touchbase
 
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +14,7 @@ import kotlinx.android.synthetic.main.fragment_contact_info.*
  */
 class ContactInfoFragment : Fragment() {
 
-    private lateinit var buttonPressed: saveButton
+    private lateinit var buttonPressedContact: ContactSaveButton
 
 
     var friendSelected: Int? = 0
@@ -31,7 +30,7 @@ class ContactInfoFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        buttonPressed = context as saveButton
+        buttonPressedContact = context as ContactSaveButton
 
         val emptyFieldWarning = context?.resources?.getString(R.string.empty_fields_warning)
         val infoUpdated       = context?.resources?.getString(R.string.contact_updated)
@@ -40,28 +39,27 @@ class ContactInfoFragment : Fragment() {
 
         button_save.setOnClickListener {
 
-            if (input_contact_name.text.toString().isBlank() ||
+            if (input_entry.text.toString().isBlank() ||
                 input_contact_phone_number.text.toString().isBlank()) {
 
                 Toast.makeText(context, emptyFieldWarning, Toast.LENGTH_LONG).show()
             }
             else {
-                var inputedName = input_contact_name.text.toString()
-                var inputedNumber = input_contact_phone_number.text.toString()
+                val inputedName = input_entry.text.toString()
+                val inputedNumber = input_contact_phone_number.text.toString()
 
-                Log.i("NOTICE ME SENPAI!!!!!", inputedName)
                 Toast.makeText(context, infoUpdated, Toast.LENGTH_LONG).show()
 
                 App.savedData!!.setPersonName(friendSelected, inputedName)
                 App.savedData!!.setPersonNumber(friendSelected, inputedNumber)
 
-                buttonPressed.saveButtonPressed()
+                buttonPressedContact.contactInfoSaveButtonPressed()
             }
         }
 
     }
 
-    interface saveButton {
-        fun saveButtonPressed()
+    interface ContactSaveButton {
+        fun contactInfoSaveButtonPressed()
     }
 }

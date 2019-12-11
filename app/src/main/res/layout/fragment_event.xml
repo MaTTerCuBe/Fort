@@ -27,15 +27,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/plus_icon"
-            android:layout_width="@dimen/resize_person_icon_medium"
-            android:layout_height="@dimen/resize_person_icon_medium"
+        <TextView
+            android:id="@+id/clear_icon"
+            android:text="@string/clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/margin_default"
+            android:textColor="@color/pinkish"
             android:layout_marginEnd="@dimen/margin_default"
             app:layout_constraintBottom_toBottomOf="@id/event_title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/event_title"
-            app:srcCompat="@drawable/plus" />
+            app:layout_constraintTop_toTopOf="@id/event_title" />
 
         <TextView
             android:id="@+id/select"
@@ -106,7 +108,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/save"
-            android:textColor="@color/white"
+            android:textColor="@color/greyed"
             android:textSize="@dimen/text_size_default"
             android:layout_marginTop="@dimen/margin_default"
             app:layout_constraintStart_toStartOf="@+id/description"

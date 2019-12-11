@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.util.Log
 //Made by Roman Khamov
 class MainActivity : AppCompatActivity(), MainMenuFragment.mainMenuOptions,
-                        FriendsFragment.FriendOptions, ContactInfoFragment.saveButton,
-                        EventFragment.EventOptions  {
+                        FriendsFragment.FriendOptions, ContactInfoFragment.ContactSaveButton,
+                        EventFragment.EventOptions, DescriptionFragment.DescriptionSaveButton  {
 
     // Fragments
     private val mainMenuFragment = MainMenuFragment()
@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity(), MainMenuFragment.mainMenuOptions,
     private val eventFragment = EventFragment()
     private val touchFragment = TouchFragment()
     private val contactInfoFragment = ContactInfoFragment()
+    private val descriptionFragment = DescriptionFragment()
 
     // String Names for fragments
     val mainMenuFragmentTag = "MainMenu"
@@ -37,7 +38,7 @@ class MainActivity : AppCompatActivity(), MainMenuFragment.mainMenuOptions,
 
     /* ----- Interfaces for MainMenuFragment ----- */
     override fun logEventTapped() {
-        var bundle = Bundle()
+        val bundle = Bundle()
         val aFriendwasSelected = false
 
         bundle.putBoolean("a_friend_was_selected", aFriendwasSelected)
@@ -82,10 +83,7 @@ class MainActivity : AppCompatActivity(), MainMenuFragment.mainMenuOptions,
         }
 
         if (requestMadeFromFragment == eventFragmentTag) {
-            val aFriendwasSelected = true
-            bundle.putBoolean("a_friend_was_selected", aFriendwasSelected)
-
-            eventFragment.arguments = bundle
+            App.savedData!!.setTempName(friendSelected.toString())
 
             manager.beginTransaction()
                 .replace(R.id.main_screen, eventFragment)
@@ -94,7 +92,7 @@ class MainActivity : AppCompatActivity(), MainMenuFragment.mainMenuOptions,
     }
 
     /* ----- Interface for ContactInfoFragment ----- */
-    override fun saveButtonPressed() {
+    override fun contactInfoSaveButtonPressed() {
         manager.beginTransaction()
             .remove(contactInfoFragment)
             .replace(R.id.main_screen, friendsFragment)
@@ -102,6 +100,12 @@ class MainActivity : AppCompatActivity(), MainMenuFragment.mainMenuOptions,
     }
 
     /* ----- Interface EventFragment ----- */
+    override fun clearFieldsTapped() {
+        manager.beginTransaction()
+            .remove(eventFragment)
+            .replace(R.id.main_screen, mainMenuFragment)
+            .commit()    }
+
     override fun selectTapped() {
         val bundle = Bundle()
         bundle.putString("request_from_fragment", eventFragmentTag)
@@ -111,6 +115,19 @@ class MainActivity : AppCompatActivity(), MainMenuFragment.mainMenuOptions,
         manager.beginTransaction()
             .replace(R.id.main_screen, friendsFragment)
             .addToBackStack(null)
+            .commit()
+    }
+
+    override fun descriptionTapped() {
+        manager.beginTransaction()
+            .replace(R.id.main_screen, descriptionFragment)
+            .commit()
+    }
+
+    override fun descriptionSaveButtonPressed() {
+        manager.beginTransaction()
+            .remove(descriptionFragment)
+            .replace(R.id.main_screen, eventFragment)
             .commit()
     }
 }

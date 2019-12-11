@@ -10,6 +10,7 @@
     <string name="date">date</string>
     <string name="description">description</string>
     <string name="save">save</string>
+    <string name="clear">clear fields</string>
 
     <!-- Main Menu -->
     <string name="description_event">\nTap here to Log an Event</string>
@@ -20,7 +21,7 @@
     <string name="title_contact_Info">Contact Info</string>
     <string name="contact_name">Name</string>
     <string name="contact_phone_number">Phone \nNumber</string>
-    <string name="empty_fields_warning">One of the above fields is empty!</string>
+    <string name="empty_fields_warning">An input fields is empty!</string>
     <string name="contact_updated">Friend Info Updated</string>
 
     <!-- Description Fragment -->

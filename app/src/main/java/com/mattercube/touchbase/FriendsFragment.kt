@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_friends.*
+import kotlinx.android.synthetic.main.fragment_touch.*
 
 /**
  * A simple [Fragment] subclass.
@@ -33,23 +34,23 @@ class FriendsFragment : Fragment() {
 
         optionSelected = context as FriendOptions
 
-        options_1.setOnClickListener {
+        user_name_1.setOnClickListener {
             optionSelected.optionTapped(1, previousFragment)
         }
 
-        options_2.setOnClickListener {
+        user_name_2.setOnClickListener {
             optionSelected.optionTapped(2, previousFragment)
         }
 
-        options_3.setOnClickListener {
+        user_name_3.setOnClickListener {
             optionSelected.optionTapped(3, previousFragment)
         }
 
-        options_4.setOnClickListener {
+        user_name_4.setOnClickListener {
             optionSelected.optionTapped(4, previousFragment)
         }
 
-        options_5.setOnClickListener {
+        user_name_5.setOnClickListener {
             optionSelected.optionTapped(5, previousFragment)
         }
     }
