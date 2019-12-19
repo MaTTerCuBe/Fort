@@ -82,7 +82,7 @@ class TouchFragment : Fragment() {
     // TO DO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     fun setFriendsInNeedOfTouchBase() {
 
-        val hardCodedFriendsPersonNumbers = arrayOf(1, 2, 3, 4, 5)
+        // val hardCodedFriendsPersonNumbers = arrayOf(1, 2, 3, 4, 5)
 
 
     }
@@ -96,13 +96,13 @@ class TouchFragment : Fragment() {
 
         val differenceInDays = currentDateInDays - lastTouchDateInDays
 
-        Log.i("Oh boy do I hope this works", "difference in days: $differenceInDays")
+        Log.i("I hope this works", "difference in days: $differenceInDays")
         return differenceInDays
     }
 
     fun convertToDaysOnly(enteredDate: String?): Long {
 
-        val logPoint = "Logging in convertToDaysOnly"
+        val logPoint = "Log convertToDaysOnly"
         Log.i(logPoint, "enteredDate: $enteredDate")
 
         var totalDays: Long = 0
@@ -135,7 +135,7 @@ class TouchFragment : Fragment() {
 
         totalDays += daysSoFar
 
-        val enteredMonths = enteredDate!!.substring(monthSubStringStart, monthSubStringEnd)
+        val enteredMonths = enteredDate.substring(monthSubStringStart, monthSubStringEnd)
         Log.i(logPoint, "enteredMonths: $enteredMonths")
 
         months = enteredMonths.toLong()
@@ -159,7 +159,7 @@ class TouchFragment : Fragment() {
 
         totalDays += daysSoFar
 
-        val enteredDays = enteredDate!!.substring(daySubStringStart)
+        val enteredDays = enteredDate.substring(daySubStringStart)
         Log.i(logPoint, "enteredDays: $enteredDays")
 
         days = enteredDays.toLong()
